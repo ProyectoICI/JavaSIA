@@ -6,10 +6,13 @@ Incluye gestión de cambios de turno, visualización de horarios y generación d
 asistencia.
 */
 
+import main.java.com.hospital.ui.*;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("asd");
+        MainFrame frame = new MainFrame();
+        frame.setVisible(true);
     }
 
 }
