@@ -5,5 +5,56 @@ import java.util.ArrayList;
 public class Enfermera {
     private String nombre;
     private String apellido;
-    private ArrayList<Preferencia>;
+    private String prefDepto;
+    private String prefTurno;
+    private boolean ocupado;
+
+    public Enfermera(String nombre, String apellido, String prefDepto, String prefTurno, boolean ocupado) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.prefDepto = prefDepto;
+        this.prefTurno = prefTurno;
+        this.ocupado = ocupado;
+    }
+
+    // Getters & Setters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getPrefDepto() {
+        return prefDepto;
+    }
+
+    public void setPrefDepto(String prefDepto) {
+        this.prefDepto = prefDepto;
+    }
+
+    public String getPrefTurno() {
+        return prefTurno;
+    }
+
+    public void setPrefTurno(String prefTurno) {
+        this.prefTurno = prefTurno;
+    }
+
+    public boolean isOcupado() {
+        return ocupado;
+    }
+
+    public void setOcupado(boolean ocupado) {
+        this.ocupado = ocupado;
+    }
 }
