@@ -1,4 +1,5 @@
 package main.java.com.hospital;
+
 /*
 Gestión de turnos de enfermeras en un hospital: Sistema para la asignación de turnos de
 enfermeras en un hospital, considerando disponibilidad, preferencias y necesidades por área.
@@ -8,11 +9,19 @@ asistencia.
 
 import main.java.com.hospital.ui.*;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+
 public class Main {
 
     public static void main(String[] args) {
-        MainFrame frame = new MainFrame();
-        frame.setVisible(true);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println(br);
+
+
+        //MainFrame frame = new MainFrame();
+        //frame.setVisible(true);
     }
 
 }

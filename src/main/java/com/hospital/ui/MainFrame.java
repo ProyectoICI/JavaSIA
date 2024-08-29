@@ -11,7 +11,11 @@ public class MainFrame extends JFrame {
         // Initialize components
         setContentPane(MainPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        MainPanel.setSize(800, 600);
         pack();
     }
 
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
