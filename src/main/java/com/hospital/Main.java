@@ -7,13 +7,28 @@ Incluye gestión de cambios de turno, visualización de horarios y generación d
 asistencia.
 */
 
+import main.java.com.hospital.controller.DeptController;
+import main.java.com.hospital.controller.HospitalController;
+import main.java.com.hospital.controller.NurseController;
+import main.java.com.hospital.controller.ShiftController;
+import main.java.com.hospital.model.Hospital;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+
+        // Controladores
+        DeptController deptController = new DeptController();
+        HospitalController hospitalController = new HospitalController();
+        NurseController nurseController = new NurseController();
+        ShiftController shiftController = new ShiftController();
+
         BufferedReader scanner = new BufferedReader(new InputStreamReader(System.in));
+        Hospital hospital = new Hospital();
+
         int opcion;
 
         do {

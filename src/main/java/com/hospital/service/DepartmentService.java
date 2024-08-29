@@ -1,7 +1,6 @@
 package main.java.com.hospital.service;
 
 import main.java.com.hospital.model.Departamento;
-import main.java.com.hospital.model.Enfermera;
 import main.java.com.hospital.model.Hospital;
 import main.java.com.hospital.repository.DepartmentRepo;
 

@@ -10,10 +10,10 @@ public class Hospital {
     private ArrayList<Departamento> deptosHospital;
     private ArrayList<Turno> turnosHospital;
 
-    public Hospital(String nombreHospital, String numeroHospital, String direccionHospital) {
-        this.nombreHospital = nombreHospital;
-        this.numeroHospital = numeroHospital;
-        this.direccionHospital = direccionHospital;
+    public Hospital() {
+        this.nombreHospital = "Sin nombre";
+        this.numeroHospital = "Sin número";
+        this.direccionHospital = "Sin dirección";
         enfermerasHospital = new ArrayList<>();
         deptosHospital = new ArrayList<>();
         turnosHospital = new ArrayList<>();
