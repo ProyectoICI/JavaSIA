@@ -1,4 +1,4 @@
 package main.java.com.hospital.model;
 
-public class Shift {
+public class Departamento {
 }

@@ -1,4 +1,4 @@
 package main.java.com.hospital.model;
 
-public class Department {
+public class Turno {
 }
