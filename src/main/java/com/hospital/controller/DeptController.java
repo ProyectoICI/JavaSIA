@@ -4,14 +4,13 @@ import main.java.com.hospital.model.Departamento;
 import main.java.com.hospital.model.Hospital;
 import main.java.com.hospital.service.DepartmentService;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DeptController {
     private DepartmentService departmentService = new DepartmentService();
-
 
     public static void addDepartamento(Hospital hospital) throws IOException {
         Scanner scanner  = new Scanner(new InputStreamReader(System.in));
@@ -27,6 +26,14 @@ public class DeptController {
 
         Departamento departamento = new Departamento(nombreDepto, numeroID);
         DepartmentService.agregarDepto(hospital, departamento);
-
     }
+
+    public static void showApartamentos(Hospital hospital) throws IOException {
+
+        ArrayList<Departamento> deptoObjeto = DepartmentService.listarDeptos(hospital);
+        for (Departamento depto : deptoObjeto) {
+            System.out.println(depto.getNombreDepto() + " " + depto.getDeptoID());
+        }
+    }
+
 }

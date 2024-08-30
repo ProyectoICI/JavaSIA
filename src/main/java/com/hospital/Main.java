@@ -33,7 +33,7 @@ public class Main {
 
         do {
             System.out.println("Menú:");
-            System.out.println("1. Editar Turnos");
+            System.out.println("1. Administrar modelos");
             System.out.println("2. Visualizar Horarios");
             System.out.println("3. Registro de Asistencia");
             System.out.println("4. Salir");
@@ -42,7 +42,8 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    mostrarSubmenu(scanner);
+                    System.out.println("Opción seleccionada: Administrar modelos");
+                    submenuModelos(scanner, hospital, deptController, hospitalController, nurseController, shiftController);
                     break;
                 case 2:
                     System.out.println("Opción seleccionada: Visualizar Horarios");
@@ -62,6 +63,51 @@ public class Main {
         scanner.close();
     }
 
+    private static void submenuModelos(BufferedReader scanner, Hospital hospital,
+                                       DeptController deptController,
+                                       HospitalController hospitalController,
+                                       NurseController nurseController,
+                                       ShiftController shiftController) throws IOException
+    {
+        int subOpcion;
+
+        do {
+            System.out.println(" ---------- Menú: --------");
+            System.out.println("1. Hospital");
+            System.out.println("2. Enfermeras");
+            System.out.println("3. Departamentos");
+            System.out.println("4. Turno");
+            System.out.println("5. Salir");
+            System.out.print("Seleccione una opción: ");
+            subOpcion = Integer.parseInt(scanner.readLine());
+
+            switch (subOpcion) {
+                case 1:
+                    System.out.println("Opción seleccionada: Hospital");
+                    esperarVolver(scanner);
+                    break;
+                case 2:
+                    System.out.println("Opción seleccionada: Enfermeras");
+                    esperarVolver(scanner);
+                    break;
+                case 3:
+                    System.out.println("Opción seleccionada: Departamentos");
+                    esperarVolver(scanner);
+                    break;
+                case 4:
+                    System.out.println("Opción seleccionada: Turnos");
+                    esperarVolver(scanner);
+                    break;
+                default:
+                    System.out.println("Opción no válida. Por favor, intente de nuevo.");
+            }
+            System.out.println();
+        } while (subOpcion != 5);
+
+    }
+
+
+    /*
     private static void mostrarSubmenu(BufferedReader scanner) throws IOException {
         int subOpcion;
 
@@ -106,7 +152,7 @@ public class Main {
             System.out.println();
         } while (subOpcion != 6);
     }
-
+    */
     private static void esperarVolver(BufferedReader scanner) throws IOException {
         System.out.println("Presione 0 para volver al menú anterior.");
         int volver = Integer.parseInt(scanner.readLine());
@@ -115,4 +161,5 @@ public class Main {
             volver = Integer.parseInt(scanner.readLine());
         }
     }
+
 }
