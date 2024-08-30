@@ -35,7 +35,7 @@ public class Main {
             System.out.println("Menú:");
             System.out.println("1. Administrar modelos");
             System.out.println("2. Visualizar Horarios");
-            System.out.println("3. Registro de Asistencia");
+            System.out.println("3. Reporte de Asistencia");
             System.out.println("4. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = Integer.parseInt(scanner.readLine());
@@ -47,9 +47,11 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Opción seleccionada: Visualizar Horarios");
+                    horariosVisual(scanner, hospital);
                     break;
                 case 3:
-                    System.out.println("Opción seleccionada: Registro de Asistencia");
+                    System.out.println("Opción seleccionada: Generar reporte de Asistencia");
+
                     break;
                 case 4:
                     System.out.println("Saliendo del menú...");
@@ -108,6 +110,15 @@ public class Main {
             }
             System.out.println();
         } while (subOpcion != 5);
+
+    }
+
+    public static void reporteAsistencia(BufferedReader scanner, Hospital hospital) throws IOException {
+
+    }
+
+    // TODO: Hacer el menú visual para ver los horarios asignados a cada turno
+    private static void horariosVisual(BufferedReader scanner, Hospital hospital) throws IOException {
 
     }
 
