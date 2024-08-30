@@ -72,30 +72,35 @@ public class Main {
         int subOpcion;
 
         do {
-            System.out.println(" ---------- Menú: --------");
+            System.out.println(" ---------- ** MODELOS ** -------- ");
             System.out.println("1. Hospital");
             System.out.println("2. Enfermeras");
             System.out.println("3. Departamentos");
             System.out.println("4. Turno");
             System.out.println("5. Salir");
-            System.out.print("Seleccione una opción: ");
+            System.out.print(  "------------------------------------");
+
             subOpcion = Integer.parseInt(scanner.readLine());
 
             switch (subOpcion) {
                 case 1:
                     System.out.println("Opción seleccionada: Hospital");
+                    submenuHospital(scanner, hospital, hospitalController);
                     esperarVolver(scanner);
                     break;
                 case 2:
                     System.out.println("Opción seleccionada: Enfermeras");
+                    submenuEnfermeras(scanner, hospital, nurseController);
                     esperarVolver(scanner);
                     break;
                 case 3:
                     System.out.println("Opción seleccionada: Departamentos");
+                    submenuDepartamentos(scanner, hospital, deptController);
                     esperarVolver(scanner);
                     break;
                 case 4:
                     System.out.println("Opción seleccionada: Turnos");
+                    submenuTurnos(scanner, hospital, shiftController);
                     esperarVolver(scanner);
                     break;
                 default:
@@ -106,53 +111,26 @@ public class Main {
 
     }
 
+    // TODO: Hacer el submenu del hospital, editar sus atributos
+    private static void submenuHospital(BufferedReader scanner, Hospital hospital, HospitalController hospitalController) {
 
-    /*
-    private static void mostrarSubmenu(BufferedReader scanner) throws IOException {
-        int subOpcion;
-
-        do {
-            System.out.println("Submenú - Editar Turnos:");
-            System.out.println("1. Añadir enfermera");
-            System.out.println("2. Eliminar enfermera");
-            System.out.println("3. Añadir departamento");
-            System.out.println("4. Eliminar departamento");
-            System.out.println("5. Modificar turno entre enfermeras");
-            System.out.println("6. Volver al menú principal");
-            System.out.print("Seleccione una opción: ");
-            subOpcion = Integer.parseInt(scanner.readLine());
-
-            switch (subOpcion) {
-                case 1:
-                    System.out.println("Opción seleccionada: Añadir enfermera");
-                    esperarVolver(scanner);
-                    break;
-                case 2:
-                    System.out.println("Opción seleccionada: Eliminar enfermera");
-                    esperarVolver(scanner);
-                    break;
-                case 3:
-                    System.out.println("Opción seleccionada: Añadir departamento");
-                    esperarVolver(scanner);
-                    break;
-                case 4:
-                    System.out.println("Opción seleccionada: Eliminar departamento");
-                    esperarVolver(scanner);
-                    break;
-                case 5:
-                    System.out.println("Opción seleccionada: Modificar turno entre enfermeras");
-                    esperarVolver(scanner);
-                    break;
-                case 6:
-                    System.out.println("Volviendo al menú principal...");
-                    break;
-                default:
-                    System.out.println("Opción no válida. Por favor, intente de nuevo.");
-            }
-            System.out.println();
-        } while (subOpcion != 6);
     }
-    */
+
+    // TODO: Hacer el submenu de las enfermeras, añadir, remover, mostrar enfermeras
+    private static void submenuEnfermeras(BufferedReader scanner, Hospital hospital, NurseController nurseController) {
+
+    }
+
+    // TODO: Hacer el submenu de los departamentos, añadir, remover, mostrar departamentos
+    private static void submenuDepartamentos(BufferedReader scanner, Hospital hospital, DeptController deptController) {
+
+    }
+
+    // TODO: Hacer el submenu de los turnos (Hay que ver como funcionan los turnos en hospitales, aunque se que es "automatico")
+    private static void submenuTurnos(BufferedReader scanner, Hospital hospital, ShiftController shiftController) {
+
+    }
+
     private static void esperarVolver(BufferedReader scanner) throws IOException {
         System.out.println("Presione 0 para volver al menú anterior.");
         int volver = Integer.parseInt(scanner.readLine());
