@@ -12,6 +12,9 @@ import java.util.Scanner;
 public class DeptController {
     private DepartmentService departmentService = new DepartmentService();
 
+    /*
+    TODO: Agregar los checkeos correspondientes a cada funcion, esta el elemento? si no está que hacer?
+     */
     public static void addDepartamento(Hospital hospital) throws IOException {
         Scanner scanner  = new Scanner(new InputStreamReader(System.in));
         System.out.println("Ingrese el nombre del departamento\n" +
