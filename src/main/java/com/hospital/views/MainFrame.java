@@ -1,8 +1,6 @@
-package main.java.com.hospital.ui;
+package main.java.com.hospital.views;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame {
     private JPanel MainPanel;
