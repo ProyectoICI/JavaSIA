@@ -13,11 +13,15 @@ public class DepartmentService {
         departmentRepo.remover(hospital, departamento);
     }
 
-    public static void agregarDepto(Hospital hospital, Departamento departamento){
+    public static void agregarDepto(Hospital hospital, Departamento departamento) {
         departmentRepo.guardar(hospital, departamento);
     }
 
     public static ArrayList<Departamento> listarDeptos(Hospital hospital) {
         return departmentRepo.encontrarTodos(hospital);
+    }
+
+    public static Departamento buscarDepto(Hospital hospital, int ID) {
+        return departmentRepo.buscarDepto(hospital, ID);
     }
 }

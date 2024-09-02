@@ -18,4 +18,7 @@ public class DepartmentRepo {
         return new ArrayList<>(hospital.getDepartments());
     }
 
+    public Departamento buscarDepto(Hospital hospital, int id) {
+        return hospital.getDepartment(id);
+    }
 }

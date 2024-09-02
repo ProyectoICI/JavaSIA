@@ -9,9 +9,10 @@ public class Departamento {
     private ArrayList<Enfermera> enfermerasDepto;
     private ArrayList<Turno> turnosDepto;
 
-    public Departamento(String nombreDepto, int deptoID) {
+    public Departamento(String nombreDepto, int deptoID, int necesidadEnfermeras) {
         this.nombreDepto = nombreDepto;
         this.deptoID = deptoID;
+        this.necesidadEnfermeras = necesidadEnfermeras;
         enfermerasDepto = new ArrayList<>();
         turnosDepto = new ArrayList<>();
     }
