@@ -7,17 +7,27 @@ public class Enfermera {
     private String apellido;
     private String prefDepto;
     private String prefTurno;
+    private int enfermeraID;
     private boolean ocupado;
 
-    public Enfermera(String nombre, String apellido, String prefDepto, String prefTurno, boolean ocupado) {
+    public Enfermera(String nombre, String apellido, String prefDepto, String prefTurno, int enfermeraID,boolean ocupado) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.prefDepto = prefDepto;
         this.prefTurno = prefTurno;
+        this.enfermeraID = enfermeraID;
         this.ocupado = ocupado;
     }
 
     // Getters & Setters
+    public int getEnfermeraID() {
+        return enfermeraID;
+    }
+
+    public void setEnfermeraID(int enfermeraID) {
+        this.enfermeraID = enfermeraID;
+    }
+
     public String getNombre() {
         return nombre;
     }

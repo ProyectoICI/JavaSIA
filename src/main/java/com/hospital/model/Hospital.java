@@ -61,6 +61,24 @@ public class Hospital {
         return new ArrayList<>(turnosHospital);
     }
 
+    public Enfermera getNurse(int id) {
+        for (Enfermera enfermera : enfermerasHospital) {
+            if (enfermera.getEnfermeraID() == id) {
+                return enfermera;
+            }
+        }
+        return null;
+    }
+
+    public Departamento getDepartment(int id) {
+        for (Departamento departamento : deptosHospital) {
+            if (departamento.getDeptoID() == id) {
+                return departamento;
+            }
+        }
+        return null;
+    }
+
     // Getters & Setters
 
     public String getNombreHospital() {
