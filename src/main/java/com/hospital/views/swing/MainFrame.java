@@ -1,4 +1,4 @@
-package main.java.com.hospital.views;
+package main.java.com.hospital.views.swing;
 
 import javax.swing.*;
 
