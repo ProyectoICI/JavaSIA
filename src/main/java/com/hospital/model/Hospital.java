@@ -1,13 +1,16 @@
 package main.java.com.hospital.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Hospital {
     private String nombreHospital;
     private String numeroHospital;
     private String direccionHospital;
     private ArrayList<Enfermera> enfermerasHospital;
-    private ArrayList<Departamento> deptosHospital;
+    private Map<Integer, Departamento> deptosHospital;
     private ArrayList<Turno> turnosHospital;
 
     public Hospital() {
@@ -15,7 +18,7 @@ public class Hospital {
         this.numeroHospital = "001";
         this.direccionHospital = "Sin dirección";
         enfermerasHospital = new ArrayList<>();
-        deptosHospital = new ArrayList<>();
+        deptosHospital = new HashMap<>();
         turnosHospital = new ArrayList<>();
     }
 
@@ -25,7 +28,7 @@ public class Hospital {
         this.numeroHospital = numeroHospital;
         this.direccionHospital = direccionHospital;
         enfermerasHospital = new ArrayList<>();
-        deptosHospital = new ArrayList<>();
+        deptosHospital = new HashMap<>();
         turnosHospital = new ArrayList<>();
     }
 
@@ -36,7 +39,7 @@ public class Hospital {
     }
 
     public void addDepartment(Departamento departamento) {
-        deptosHospital.add(departamento);
+        deptosHospital.put(deptosHospital.size(), departamento);
     }
 
     public void addShift(Turno turno) {
@@ -63,8 +66,8 @@ public class Hospital {
         return new ArrayList<>(enfermerasHospital);
     }
 
-    public ArrayList<Departamento> getDepartments() {
-        return new ArrayList<>(deptosHospital);
+    public Map<Integer, Departamento> getDepartments() {
+        return new HashMap<>(deptosHospital);
     }
 
     public ArrayList<Turno> getShifts() {
@@ -80,8 +83,37 @@ public class Hospital {
         return null;
     }
 
+    public Enfermera getNurse(String nombre) {
+        Enfermera enfermeraCopia = new Enfermera();
+        int contador = 0;
+
+        for (Enfermera enfermera : enfermerasHospital) {
+            if (enfermera.getNombre().equals(nombre)) {
+                contador++;
+
+                enfermeraCopia = enfermera;
+            }
+        }
+        if (contador > 1) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Se han encontrado más de dos enfermeras con el mismo nombre");
+            System.out.println("Ingrese el apellido para más precisión");
+            String apellido = scanner.nextLine();
+            for (Enfermera enfermera : enfermerasHospital) {
+                if (enfermera.getApellido().equals(apellido)) {
+                    return enfermera;
+                }
+            }
+            System.out.println("No se ha encontrado una enfermera con ese apellido.");
+        } else if (enfermeraCopia != null) {
+            return enfermeraCopia;
+        }
+
+        return null;
+    }
+
     public Departamento getDepartment(int id) {
-        for (Departamento departamento : deptosHospital) {
+        for (Departamento departamento : deptosHospital.values()) {
             if (departamento.getDeptoID() == id) {
                 return departamento;
             }

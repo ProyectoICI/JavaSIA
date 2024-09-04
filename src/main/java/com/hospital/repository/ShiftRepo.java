@@ -7,6 +7,8 @@ import test.InitialData;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ShiftRepo {
 
@@ -33,7 +35,7 @@ public class ShiftRepo {
 
             String[] randomTime = {"Mañana", "Dia", "Noche"};
             LocalDate randomDate;
-            ArrayList<Departamento> deptosHospital = hospital.getDepartments();
+            Map<Integer, Departamento> deptosHospital = hospital.getDepartments();
 
 
             int yearDate = 2024;
@@ -81,5 +83,12 @@ public class ShiftRepo {
 
         }
 
+    }
+
+    public void cargarData(Hospital hospital) {
+        ArrayList<Turno> turnosIniciales = InitialData.cargarTurnos();
+        for (Turno turno : turnosIniciales) {
+            hospital.addShift(turno);
+        }
     }
 }

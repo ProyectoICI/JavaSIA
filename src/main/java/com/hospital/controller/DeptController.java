@@ -7,6 +7,8 @@ import main.java.com.hospital.service.DepartmentService;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class DeptController {
@@ -65,8 +67,8 @@ public class DeptController {
 
     public static void showApartamentos(Hospital hospital) throws IOException {
 
-        ArrayList<Departamento> deptoObjeto = DepartmentService.listarDeptos(hospital);
-        for (Departamento depto : deptoObjeto) {
+        Map<Integer, Departamento> deptoObjeto = DepartmentService.listarDeptos(hospital);
+        for (Departamento depto : deptoObjeto.values()) {
             System.out.println("Departamento: '" + depto.getNombreDepto() + "' con id '" + depto.getDeptoID() + "' y necesidad '" + depto.getNecesidadEnfermeras() + "'");
         }
     }

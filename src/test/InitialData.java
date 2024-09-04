@@ -7,12 +7,14 @@ import main.java.com.hospital.model.Turno;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class InitialData {
     // TODO: Agregar datos iniciales inicializando y poblando un ArrayList de departamentos y retornandolo
     // TODO:
-    public static ArrayList<Departamento> cargarDeptos() {
-        ArrayList<Departamento> deptosIniciales = new ArrayList<>();
+    public static Map<Integer, Departamento> cargarDeptos() {
+        Map<Integer, Departamento> deptosIniciales = new HashMap<>();
 
         Departamento depto1 = new Departamento("Cardiología", 001, 3);
         Departamento depto2 = new Departamento("Anestesiología", 002, 1);
@@ -21,12 +23,12 @@ public class InitialData {
         Departamento depto5 = new Departamento("Cuidados intensivos", 005, 5);
         Departamento depto6 = new Departamento("Laboratorios clínicos", 006, 6);
 
-        deptosIniciales.add(depto1);
-        deptosIniciales.add(depto2);
-        deptosIniciales.add(depto3);
-        deptosIniciales.add(depto4);
-        deptosIniciales.add(depto5);
-        deptosIniciales.add(depto6);
+        deptosIniciales.put(depto1.getDeptoID(), depto1);
+        deptosIniciales.put(depto2.getDeptoID(), depto2);
+        deptosIniciales.put(depto3.getDeptoID(), depto3);
+        deptosIniciales.put(depto4.getDeptoID(), depto4);
+        deptosIniciales.put(depto5.getDeptoID(), depto5);
+        deptosIniciales.put(depto6.getDeptoID(), depto6);
 
         return deptosIniciales;
     }

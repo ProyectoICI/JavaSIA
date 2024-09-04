@@ -12,8 +12,10 @@ public class ShiftController {
 
     public ShiftController(boolean loadData, Hospital hospital, boolean randomizeShifts) {
         shiftService = new ShiftService();
-        if (loadData) {
+        if (loadData && randomizeShifts) {
             shiftService.loadInitialData(hospital, randomizeShifts);
+        } else if (loadData) {
+            shiftService.loadInitialData(hospital);
         }
     }
 

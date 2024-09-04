@@ -5,6 +5,8 @@ import main.java.com.hospital.model.Hospital;
 import test.InitialData;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DepartmentRepo {
     public void guardar(Hospital hospital, Departamento departamento) {
@@ -15,8 +17,8 @@ public class DepartmentRepo {
         hospital.removeDepartment(departamento);
     }
 
-    public ArrayList<Departamento> encontrarTodos(Hospital hospital) {
-        return new ArrayList<>(hospital.getDepartments());
+    public HashMap<Integer,Departamento> encontrarTodos(Hospital hospital) {
+        return new HashMap<>(hospital.getDepartments());
     }
 
     public Departamento buscarDepto(Hospital hospital, int id) {
@@ -24,8 +26,8 @@ public class DepartmentRepo {
     }
 
     public void cargarData(Hospital hospital) {
-        ArrayList<Departamento> departamentosIniciales = InitialData.cargarDeptos();
-        for (Departamento departamento : departamentosIniciales) {
+        Map<Integer, Departamento> departamentosIniciales = InitialData.cargarDeptos();
+        for (Departamento departamento : departamentosIniciales.values()) {
             hospital.addDepartment(departamento);
         }
     }

@@ -23,4 +23,6 @@ public class ShiftService {
     }
 
     public void loadInitialData(Hospital hospital, boolean randomizeShifts) { shiftRepo.cargarData(hospital, randomizeShifts); }
+
+    public void loadInitialData(Hospital hospital) { shiftRepo.cargarData(hospital); }
 }

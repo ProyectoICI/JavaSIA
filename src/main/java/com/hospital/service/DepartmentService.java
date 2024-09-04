@@ -6,6 +6,8 @@ import main.java.com.hospital.repository.DepartmentRepo;
 import test.InitialData;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DepartmentService {
     public static final DepartmentRepo departmentRepo = new DepartmentRepo();
@@ -22,7 +24,7 @@ public class DepartmentService {
         departmentRepo.guardar(hospital, departamento);
     }
 
-    public static ArrayList<Departamento> listarDeptos(Hospital hospital) {
+    public static Map<Integer, Departamento> listarDeptos(Hospital hospital) {
         return departmentRepo.encontrarTodos(hospital);
     }
 
