@@ -1,9 +1,11 @@
 package main.java.com.hospital.repository;
 
+import main.java.com.hospital.model.Departamento;
 import main.java.com.hospital.model.Hospital;
 import main.java.com.hospital.model.Turno;
 import test.InitialData;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class ShiftRepo {
@@ -20,10 +22,64 @@ public class ShiftRepo {
         return new ArrayList<>(hospital.getShifts());
     }
 
-    public void cargarData(Hospital hospital) {
+    public void cargarData(Hospital hospital, boolean randomizeShifts) {
         ArrayList<Turno> turnosIniciales = InitialData.cargarTurnos();
-        for (Turno turno : turnosIniciales) {
-            hospital.addShift(turno);
+
+        if (!randomizeShifts) {
+            for (Turno turno : turnosIniciales) {
+                hospital.addShift(turno);
+            }
+        } else {
+
+            String[] randomTime = {"Mañana", "Dia", "Noche"};
+            LocalDate randomDate;
+            ArrayList<Departamento> deptosHospital = hospital.getDepartments();
+
+
+            int yearDate = 2024;
+            int randomMonth;
+            int randomDay;
+
+            String stringRandomDay;
+            String stringRandomMonth;
+
+            int indexTime;
+            int indexDeptos;
+
+            for (int i = 0; i < turnosIniciales.size(); i++) {
+                Turno turnoRandom = new Turno();
+                indexTime = (int) (Math.random() * randomTime.length);
+                indexDeptos = (int) (Math.random() * turnosIniciales.size());
+
+
+                randomDay =  1 + (int) (Math.random() * ((27 - 1 + 1) + 1));
+                randomMonth = 1 + (int) (Math.random() * ((12 + 1 + 1) + 1));
+
+                if (randomDay <= 9) {
+                    stringRandomDay = "0" + randomDay;
+                } else {
+                    stringRandomDay = String.valueOf(randomDay);
+                }
+
+                if (randomMonth <= 9) {
+                    stringRandomMonth = "0" + randomMonth;
+                } else {
+                    stringRandomMonth = String.valueOf(randomMonth);
+                }
+
+                String randomDateString = yearDate + "-" + stringRandomMonth + "-" + stringRandomDay;
+
+
+                randomDate = LocalDate.parse(randomDateString);
+
+                turnoRandom.setDiaTurno(randomDate);
+                turnoRandom.setHorarioTurno(randomTime[indexTime]);
+                turnoRandom.setDeptoTurno(deptosHospital.get(indexDeptos).getNombreDepto());
+                hospital.addShift(turnoRandom);
+            }
+
+
         }
+
     }
 }

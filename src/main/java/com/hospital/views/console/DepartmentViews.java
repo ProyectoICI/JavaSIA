@@ -17,7 +17,8 @@ public class DepartmentViews {
             System.out.println("1. Crear nuevo departamento");
             System.out.println("2. Eliminar departamento");
             System.out.println("3. Listar departamentos");
-            System.out.println("4. Volver atras");
+            System.out.println("4. Editar departamento");
+            System.out.println("5. Volver atras");
             System.out.println(  "------------------------------------");
             opcion = Integer.parseInt(scanner.readLine());
 
@@ -37,6 +38,7 @@ public class DepartmentViews {
                 case 4:
                     System.out.println("Opción seleccionada: Editar departamento");
                     submenuDeptoEditar(scanner, hospital, deptController);
+                    break;
                 case 5:
                     System.out.println("Volviendo atras...");
                     break;

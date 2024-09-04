@@ -22,5 +22,5 @@ public class ShiftService {
         return shiftRepo.encontrarTodos(hospital);
     }
 
-    public void loadInitialData(Hospital hospital) { shiftRepo.cargarData(hospital); }
+    public void loadInitialData(Hospital hospital, boolean randomizeShifts) { shiftRepo.cargarData(hospital, randomizeShifts); }
 }

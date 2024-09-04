@@ -13,7 +13,6 @@ import main.java.com.hospital.controller.NurseController;
 import main.java.com.hospital.controller.ShiftController;
 import main.java.com.hospital.model.Hospital;
 import main.java.com.hospital.views.console.MenuViews;
-import test.InitialData;
 
 import java.io.IOException;
 
@@ -24,7 +23,7 @@ public class Main {
         * boolean randomizeShifts - De ser verdadero, crea turnos aleatorios iniciales para demostrar funcionalidad
         * */
         boolean loadData = true;
-        boolean randomizeShifts = false;
+        boolean randomizeShifts = true;
         // TODO: Hacer que randomizeShifts habilite turnos aleatorios de mañana/día/noche de distintos departamentos.
 
         Hospital hospital = new Hospital();
@@ -33,7 +32,7 @@ public class Main {
         DeptController deptController = new DeptController(loadData, hospital);
         HospitalController hospitalController = new HospitalController(loadData, hospital);
         NurseController nurseController = new NurseController(loadData, hospital);
-        ShiftController shiftController = new ShiftController(loadData, hospital);
+        ShiftController shiftController = new ShiftController(loadData, hospital, randomizeShifts);
         
         // Menu de consola
         MenuViews menu = new MenuViews();
