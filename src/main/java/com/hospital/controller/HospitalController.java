@@ -7,7 +7,14 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class HospitalController {
-    private HospitalService hospitalService = new HospitalService();
+    private HospitalService hospitalService;
+
+    public HospitalController(boolean loadData, Hospital hospital) {
+        this.hospitalService = new HospitalService();
+        if (loadData) {
+            hospitalService.loadInitialData(hospital);
+        }
+    }
 
     public static void changeNombre(Hospital hospital) {
         Scanner scanner  = new Scanner(new InputStreamReader(System.in));

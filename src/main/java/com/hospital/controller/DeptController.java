@@ -10,7 +10,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DeptController {
-    private DepartmentService departmentService = new DepartmentService();
+    private DepartmentService departmentService;
+
+    public DeptController(boolean loadData, Hospital hospital) throws IOException {
+        this.departmentService = new DepartmentService();
+        if (loadData) {
+            DepartmentService.loadInitialData(hospital);
+        }
+    }
 
     /*
     TODO: Agregar los checkeos correspondientes a cada funcion, esta el elemento? si no está que hacer?

@@ -21,4 +21,6 @@ public class ShiftService {
     public static ArrayList<Turno> listarTurnos(Hospital hospital) {
         return shiftRepo.encontrarTodos(hospital);
     }
+
+    public void loadInitialData(Hospital hospital) { shiftRepo.cargarData(hospital); }
 }

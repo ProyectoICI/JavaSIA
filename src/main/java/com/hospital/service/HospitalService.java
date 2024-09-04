@@ -7,6 +7,10 @@ import main.java.com.hospital.repository.HospitalRepo;
 public class HospitalService {
     public static final HospitalRepo hospitalRepo = new HospitalRepo();
 
+    public void loadInitialData(Hospital hospital) {
+        hospitalRepo.cargarData(hospital);
+    }
+
     public static void cambioNombre(Hospital hospital, String nombre) {
         hospitalRepo.cambioNombre(hospital, nombre);
     }
@@ -18,4 +22,6 @@ public class HospitalService {
     public static void cambioNumero(Hospital hospital, int numero) {
         hospitalRepo.cambioNumero(hospital, numero);
     }
+
+
 }

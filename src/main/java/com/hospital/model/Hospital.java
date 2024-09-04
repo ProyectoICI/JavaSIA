@@ -118,13 +118,4 @@ public class Hospital {
         this.direccionHospital = direccionHospital;
     }
 
-    public ArrayList<Enfermera> getEnfermerasHospital() {
-        return enfermerasHospital;
-    }
-
-    public void setEnfermerasHospital(ArrayList<Enfermera> enfermerasHospital) {
-        this.enfermerasHospital = enfermerasHospital;
-    }
-
-
 }

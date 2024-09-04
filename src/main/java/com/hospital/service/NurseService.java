@@ -9,6 +9,10 @@ import java.util.ArrayList;
 public class NurseService {
     private static final NurseRepo nurseRepo = new NurseRepo();
 
+    public void loadInitialData(Hospital hospital) {
+        nurseRepo.cargarData(hospital);
+    }
+
     public static void eliminarEnfermera(Hospital hospital, Enfermera enfermera) {
         nurseRepo.remover(hospital, enfermera);
     }

@@ -21,15 +21,13 @@ import static main.java.com.hospital.views.console.DepartmentViews.submenuDepart
 import static main.java.com.hospital.views.console.NurseViews.submenuEnfermeras;
 
 public class MenuViews {
-    public static void menuPrincipal() throws IOException {
-        // Controladores
-        DeptController deptController = new DeptController();
-        HospitalController hospitalController = new HospitalController();
-        NurseController nurseController = new NurseController();
-        ShiftController shiftController = new ShiftController();
+    public static void menuPrincipal(Hospital hospital,
+                                     DeptController deptController,
+                                     HospitalController hospitalController,
+                                     NurseController nurseController,
+                                     ShiftController shiftController) throws IOException {
 
         BufferedReader scanner = new BufferedReader(new InputStreamReader(System.in));
-        Hospital hospital = new Hospital();
 
         int opcion;
 
@@ -53,6 +51,7 @@ public class MenuViews {
                     break;
                 case 2:
                     System.out.println("Opción seleccionada: Visualizar Horarios");
+                    shiftController.calculoPrioridad();
                     horariosVisual(scanner, hospital);
                     break;
                 case 3:
