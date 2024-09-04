@@ -73,6 +73,10 @@ public class DeptController {
         }
     }
 
+    public static void showApartamentos() {
+        System.out.println("No se encontraron departamentos.");
+    }
+
     // TODO: Hacer la función cambioNecesidad que cambiaría la necesidad de enfermeras del departamento indicado
     public static void cambioNecesidad(Hospital hospital) throws IOException {
 

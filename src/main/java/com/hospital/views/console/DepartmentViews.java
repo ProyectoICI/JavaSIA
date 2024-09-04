@@ -11,7 +11,7 @@ public class DepartmentViews {
     // TODO: Hacer el submenu de los departamentos, añadir, remover, mostrar departamentos
     public static void submenuDepartamentos(BufferedReader scanner, Hospital hospital, DeptController deptController) throws IOException {
         int opcion;
-
+        int cantApartamentos = hospital.getDepartments().size();
         do {
             System.out.println(" --------- ** DEPARTAMENTOS ** ------- ");
             System.out.println("1. Crear nuevo departamento");
@@ -33,7 +33,11 @@ public class DepartmentViews {
                     break;
                 case 3:
                     System.out.println("Opción seleccionada: Listar departamentos");
-                    DeptController.showApartamentos(hospital);
+                    if (cantApartamentos != 0) {
+                        DeptController.showApartamentos(hospital);
+                    } else {
+                        DeptController.showApartamentos();
+                    }
                     break;
                 case 4:
                     System.out.println("Opción seleccionada: Editar departamento");

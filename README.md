@@ -23,8 +23,7 @@ lectura y escritura (getter y setter).</span>
 muestra la figura. Las colecciones pueden ser implementadas mediante arreglos o clases del
 Java Collections Framework  (JCF).</span> 
 
-- SIA1.6 Diseño conceptual y codificación de 2 clases que utilicen sobrecarga de métodos (no de
-constructores)
+- <span style="color:green"> SIA1.6 Diseño conceptual y codificación de 2 clases que utilicen sobrecarga de métodos (no de constructores) </span>
 
 - <span style="color:green"> SIA1.7 Diseño conceptual y codificación de al menos 1 clase mapa del Java Collections Framework </span>
 

@@ -37,35 +37,35 @@ public class InitialData {
     public static ArrayList<Enfermera> cargarEnfermeras() {
         ArrayList<Enfermera> enfermerasIniciales = new ArrayList<>();
 
-        Enfermera enfermera1 = new Enfermera("Carolina", "Lopez", "Cardiología", "Dia", 001);
-        Enfermera enfermera2 = new Enfermera("Patricia", "Gonzalez", "Cardiología", "Mañana", 002);
-        Enfermera enfermera3 = new Enfermera("Carmen", "Gutierrez", "Cardiología", "Dia", 003);
-        Enfermera enfermera4 = new Enfermera("Marcela", "Díaz", "Anestesiología", "Noche", 004);
-        Enfermera enfermera5 = new Enfermera("Sandra", "Soto", "Pediatría", "Dia", 005);
+        Enfermera enfermera1 = new Enfermera("Carolina", "Lopez", "Cardiología", "Dia", 1);
+        Enfermera enfermera2 = new Enfermera("Patricia", "Gonzalez", "Cardiología", "Mañana", 2);
+        Enfermera enfermera3 = new Enfermera("Carmen", "Gutierrez", "Cardiología", "Dia", 3);
+        Enfermera enfermera4 = new Enfermera("Marcela", "Díaz", "Anestesiología", "Noche", 4);
+        Enfermera enfermera5 = new Enfermera("Sandra", "Soto", "Pediatría", "Dia", 5);
 
-        Enfermera enfermera6 = new Enfermera("Alicia", "Silva", "Pediatría", "Dia", 006);
-        Enfermera enfermera7 = new Enfermera("Francisca", "Morales", "Pediatría", "Dia", 007);
+        Enfermera enfermera6 = new Enfermera("Alicia", "Silva", "Pediatría", "Dia", 6);
+        Enfermera enfermera7 = new Enfermera("Francisca", "Morales", "Pediatría", "Dia", 7);
         Enfermera enfermera8 = new Enfermera("Claudia", "Flores", "Cirugía general", "Noche", 8);
         Enfermera enfermera9 = new Enfermera("Isabela", "Rojas", "Cirugía general", "Noche", 9);
-        Enfermera enfermera10 = new Enfermera("Daniela", "Torres", "Cirugía general", "Noche", 010);
+        Enfermera enfermera10 = new Enfermera("Daniela", "Torres", "Cirugía general", "Noche", 10);
 
-        Enfermera enfermera11 = new Enfermera("Nicole", "Sepúlveda", "Cirugía general", "Mañana", 011);
-        Enfermera enfermera12 = new Enfermera("Laura", "Castillo", "Cirugía general", "Dia", 012);
-        Enfermera enfermera13 = new Enfermera("Gabriela", "Fuentes", "Cirugía general", "Noche", 013);
-        Enfermera enfermera14 = new Enfermera("Sara", "Rodríguez", "Cirugía general", "Dia", 014);
-        Enfermera enfermera15 = new Enfermera("Alejandra", "Araya", "Cirugía general", "Dia", 015);
+        Enfermera enfermera11 = new Enfermera("Nicole", "Sepúlveda", "Cirugía general", "Mañana", 11);
+        Enfermera enfermera12 = new Enfermera("Laura", "Castillo", "Cirugía general", "Dia", 12);
+        Enfermera enfermera13 = new Enfermera("Gabriela", "Fuentes", "Cirugía general", "Noche", 13);
+        Enfermera enfermera14 = new Enfermera("Sara", "Rodríguez", "Cirugía general", "Dia", 14);
+        Enfermera enfermera15 = new Enfermera("Alejandra", "Araya", "Cirugía general", "Dia", 15);
 
-        Enfermera enfermera16 = new Enfermera("Constanza", "Reyes", "Cuidados intensivos", "Dia", 016);
-        Enfermera enfermera17 = new Enfermera("Katherine", "Espinoza", "Cuidados intensivos", "Dia", 017);
+        Enfermera enfermera16 = new Enfermera("Constanza", "Reyes", "Cuidados intensivos", "Dia", 16);
+        Enfermera enfermera17 = new Enfermera("Katherine", "Espinoza", "Cuidados intensivos", "Dia", 17);
         Enfermera enfermera18 = new Enfermera("Barbara", "Hernández", "Cuidados intensivos", "Dia", 18);
         Enfermera enfermera19 = new Enfermera("Angela", "Ramírez", "Cuidados intensivos", "Dia", 19);
-        Enfermera enfermera20 = new Enfermera("Victoria", "Álvarez", "Cuidados intensivos", "Dia", 020);
+        Enfermera enfermera20 = new Enfermera("Victoria", "Álvarez", "Cuidados intensivos", "Dia", 20);
 
-        Enfermera enfermera21 = new Enfermera("Javiera", "Vásquez", "Cuidados intensivos", "Dia", 021);
-        Enfermera enfermera22 = new Enfermera("Evelyn", "Tapia", "Laboratorios clínicos", "Dia", 022);
-        Enfermera enfermera23 = new Enfermera("Soledad", "Sanchez", "Laboratorios clínicos", "Dia", 023);
-        Enfermera enfermera24 = new Enfermera("Ivonne", "Fernandez", "Laboratorios clínicos", "Dia", 024);
-        Enfermera enfermera25 = new Enfermera("Sofia", "Carrasco", "Laboratorios clínicos", "Dia", 026);
+        Enfermera enfermera21 = new Enfermera("Javiera", "Vásquez", "Cuidados intensivos", "Dia", 21);
+        Enfermera enfermera22 = new Enfermera("Evelyn", "Tapia", "Laboratorios clínicos", "Dia", 22);
+        Enfermera enfermera23 = new Enfermera("Soledad", "Sanchez", "Laboratorios clínicos", "Dia", 23);
+        Enfermera enfermera24 = new Enfermera("Ivonne", "Fernandez", "Laboratorios clínicos", "Dia", 24);
+        Enfermera enfermera25 = new Enfermera("Sofia", "Carrasco", "Laboratorios clínicos", "Dia", 25);
 
         enfermerasIniciales.add(enfermera1);
         enfermerasIniciales.add(enfermera2);

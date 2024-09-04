@@ -22,7 +22,7 @@ public class Main {
         * boolean loadData        - Carga el programa con datos iniciales de ser verdadero
         * boolean randomizeShifts - De ser verdadero, crea turnos aleatorios iniciales para demostrar funcionalidad
         * */
-        boolean loadData = true;
+        boolean loadData = false;
         boolean randomizeShifts = true;
         // TODO: Hacer que randomizeShifts habilite turnos aleatorios de mañana/día/noche de distintos departamentos.
 
@@ -37,7 +37,6 @@ public class Main {
         // Menu de consola
         MenuViews menu = new MenuViews();
 
-        
         MenuViews.menuPrincipal(hospital, deptController, hospitalController, nurseController, shiftController);
 
 

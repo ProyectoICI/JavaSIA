@@ -5,9 +5,10 @@ public class Enfermera {
     private String apellido;
     private String prefDepto;
     private String prefTurno;
+    private int enfermeraID;
+
     private String deptoAsignado;
     private int asistencia;
-    private int enfermeraID;
     private boolean ocupado;
 
     public Enfermera(String nombre, String apellido, String prefDepto, String prefTurno, int enfermeraID) {
@@ -17,6 +18,17 @@ public class Enfermera {
         this.prefDepto = prefDepto;
         this.prefTurno = prefTurno;
 
+        this.asistencia = 100;
+        this.deptoAsignado = "Ninguno";
+        this.ocupado = false;
+    }
+
+    public Enfermera() {
+        this.nombre = "";
+        this.apellido = "";
+        this.enfermeraID = 0;
+        this.prefDepto = "";
+        this.prefTurno = "";
         this.asistencia = 100;
         this.deptoAsignado = "Ninguno";
         this.ocupado = false;

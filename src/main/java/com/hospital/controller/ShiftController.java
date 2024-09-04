@@ -42,6 +42,10 @@ public class ShiftController {
         System.out.println("------------");
     }
 
+    public static void listarTurnos() {
+        System.out.println("No se encontraron turnos.");
+    }
+
     // TODO: Hacer la lógica de ordenar la asignación de los turnos en base a las prioridades y necesidades de cada área.
     // TODO: Poblar los turnos basados en esa lógica
     public void calculoPrioridad() {
