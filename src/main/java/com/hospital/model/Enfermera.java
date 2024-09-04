@@ -1,33 +1,32 @@
 package main.java.com.hospital.model;
 
-import java.util.ArrayList;
-
 public class Enfermera {
     private String nombre;
     private String apellido;
     private String prefDepto;
     private String prefTurno;
-    private int deptoAsignado;
+    private String deptoAsignado;
     private int asistencia;
     private int enfermeraID;
     private boolean ocupado;
 
-    public Enfermera(String nombre, String apellido, String prefDepto, String prefTurno, int enfermeraID, boolean ocupado, int asistencia, int deptoAsignado) {
+    public Enfermera(String nombre, String apellido, String prefDepto, String prefTurno, int enfermeraID) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.enfermeraID = enfermeraID;
         this.prefDepto = prefDepto;
         this.prefTurno = prefTurno;
-        this.deptoAsignado = deptoAsignado;
-        this.asistencia = asistencia;
-        this.enfermeraID = enfermeraID;
-        this.ocupado = ocupado;
+
+        this.asistencia = 100;
+        this.deptoAsignado = "Ninguno";
+        this.ocupado = false;
     }
 
     // Getters & Setters
 
-    public int getDeptoAsignado() { return deptoAsignado; }
+    public String getDeptoAsignado() { return deptoAsignado; }
 
-    public void setDeptoAsignado(int deptoAsignado) { this.deptoAsignado = deptoAsignado; }
+    public void setDeptoAsignado(String deptoAsignado) { this.deptoAsignado = deptoAsignado; }
 
     public int getAsistencia() { return asistencia; }
 
