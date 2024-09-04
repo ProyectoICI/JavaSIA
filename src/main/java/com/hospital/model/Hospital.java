@@ -19,6 +19,16 @@ public class Hospital {
         turnosHospital = new ArrayList<>();
     }
 
+    // Sobrecarga de constructor
+    public Hospital(String nombreHospital, String numeroHospital, String direccionHospital) {
+        this.nombreHospital = nombreHospital;
+        this.numeroHospital = numeroHospital;
+        this.direccionHospital = direccionHospital;
+        enfermerasHospital = new ArrayList<>();
+        deptosHospital = new ArrayList<>();
+        turnosHospital = new ArrayList<>();
+    }
+
     // Metodos de añadir
 
     public void addNurse(Enfermera enfermera) {

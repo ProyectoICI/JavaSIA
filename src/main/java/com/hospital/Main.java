@@ -19,8 +19,14 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        // Si es verdadero carga información inicial al programa
+        /*
+        * boolean loadData        - Carga el programa con datos iniciales de ser verdadero
+        * boolean randomizeShifts - De ser verdadero, crea turnos aleatorios iniciales para demostrar funcionalidad
+        * */
         boolean loadData = true;
+        boolean randomizeShifts = false;
+        // TODO: Hacer que randomizeShifts habilite turnos aleatorios de mañana/día/noche de distintos departamentos.
+
         Hospital hospital = new Hospital();
 
         // Controladores
