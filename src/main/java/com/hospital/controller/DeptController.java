@@ -36,6 +36,7 @@ public class DeptController {
 
         if (verificacionID == null) {
             DepartmentService.agregarDepto(hospital, departamento);
+            System.out.println("Depto agregado con exito.");
         } else {
             System.out.println("El ID " + numeroID + " ya esta en uso.");
         }
@@ -59,8 +60,23 @@ public class DeptController {
 
         ArrayList<Departamento> deptoObjeto = DepartmentService.listarDeptos(hospital);
         for (Departamento depto : deptoObjeto) {
-            System.out.println("Departamento: " + depto.getNombreDepto() + " con id " + depto.getDeptoID() + " y necesidad " + depto.getNecesidadEnfermeras());
+            System.out.println("Departamento: '" + depto.getNombreDepto() + "' con id '" + depto.getDeptoID() + "' y necesidad '" + depto.getNecesidadEnfermeras() + "'");
         }
+    }
+
+    // TODO: Hacer la función cambioNecesidad que cambiaría la necesidad de enfermeras del departamento indicado
+    public static void cambioNecesidad(Hospital hospital) throws IOException {
+
+    }
+
+    // TODO: Hacer la función asignarEnfermera que asigna enfermeras al departamento indicado
+    public static void asignarEnfermera(Hospital hospital) throws IOException {
+
+    }
+
+    // TODO: Hacer la función desasignarEnfermera que desasignaria enfermeras de un departamento indicado
+    public static void desasignarEnfermera(Hospital hospital) throws IOException {
+
     }
 
 }

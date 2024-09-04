@@ -12,7 +12,7 @@ public class Hospital {
 
     public Hospital() {
         this.nombreHospital = "Sin nombre";
-        this.numeroHospital = "Sin número";
+        this.numeroHospital = "001";
         this.direccionHospital = "Sin dirección";
         enfermerasHospital = new ArrayList<>();
         deptosHospital = new ArrayList<>();
@@ -79,6 +79,19 @@ public class Hospital {
         return null;
     }
 
+    // Metodos del hospital
+    public void changeNumber(int numero, Hospital hospital) {
+        hospital.setNumeroHospital(String.valueOf(numero));
+    }
+
+    public void changeLocation(String direccion, Hospital hospital) {
+        hospital.setDireccionHospital(direccion);
+    }
+
+    public void changeName(String nombre, Hospital hospital) {
+        hospital.setNombreHospital(nombre);
+    }
+
     // Getters & Setters
 
     public String getNombreHospital() {
@@ -112,4 +125,6 @@ public class Hospital {
     public void setEnfermerasHospital(ArrayList<Enfermera> enfermerasHospital) {
         this.enfermerasHospital = enfermerasHospital;
     }
+
+
 }

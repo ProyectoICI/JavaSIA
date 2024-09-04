@@ -34,11 +34,15 @@ public class MenuViews {
         int opcion;
 
         do {
-            System.out.println("Menú:");
+            System.out.println(" ** HOSPITAL '" + hospital.getNombreHospital() + "' N°" + hospital.getNumeroHospital() + " **");
+            System.out.println("Dirección: " + hospital.getDireccionHospital());
+            System.out.println();
+            System.out.println(" ----- Menú principal -----");
             System.out.println("1. Administrar modelos");
             System.out.println("2. Visualizar Horarios");
             System.out.println("3. Reporte de Asistencia");
             System.out.println("4. Salir");
+            System.out.println(" --------------------------");
             System.out.print("Seleccione una opción: ");
             opcion = Integer.parseInt(scanner.readLine());
 
