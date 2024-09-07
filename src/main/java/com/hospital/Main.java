@@ -24,7 +24,6 @@ public class Main {
         * */
         boolean loadData = true;
         boolean randomizeShifts = true;
-        // TODO: Hacer que randomizeShifts habilite turnos aleatorios de mañana/día/noche de distintos departamentos.
 
         Hospital hospital = new Hospital();
 

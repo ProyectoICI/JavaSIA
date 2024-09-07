@@ -8,7 +8,6 @@ import java.io.IOException;
 
 public class DepartmentViews {
 
-    // TODO: Hacer el submenu de los departamentos, añadir, remover, mostrar departamentos
     public static void submenuDepartamentos(BufferedReader scanner, Hospital hospital, DeptController deptController) throws IOException {
         int opcion;
         int cantApartamentos = hospital.getDepartments().size();
