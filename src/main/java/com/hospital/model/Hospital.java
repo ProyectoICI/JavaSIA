@@ -1,5 +1,7 @@
 package main.java.com.hospital.model;
 
+import main.java.com.hospital.model.Exceptions;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -125,7 +127,7 @@ public class Hospital {
         return null;
     }
 
-    public Departamento getDepartment(int id) {
+    public Departamento getDepartment(int id)  {
         for (Departamento departamento : deptosHospital.values()) {
             if (departamento.getDeptoID() == id) {
                 return departamento;

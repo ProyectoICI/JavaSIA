@@ -11,8 +11,16 @@ public class OtherViews {
 
     }
 
+    public static void reporteModelos(BufferedReader scanner, Hospital hospital) throws IOException {
+
+    }
 
     public static void horariosVisual(BufferedReader scanner, Hospital hospital) throws IOException {
 
     }
+
+    public static void asistenciaCritica(BufferedReader scanner, Hospital hospital) throws IOException {
+
+    }
+
 }

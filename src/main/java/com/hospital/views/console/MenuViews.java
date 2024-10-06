@@ -14,8 +14,7 @@ import main.java.com.hospital.model.Hospital;
 
 // -- VISTAS DE SUBMENUS --
 import static main.java.com.hospital.views.console.HospitalViews.submenuHospital;
-import static main.java.com.hospital.views.console.OtherViews.horariosVisual;
-import static main.java.com.hospital.views.console.OtherViews.reporteAsistencia;
+import static main.java.com.hospital.views.console.OtherViews.*;
 import static main.java.com.hospital.views.console.ShiftViews.submenuTurnos;
 import static main.java.com.hospital.views.console.DepartmentViews.submenuDepartamentos;
 import static main.java.com.hospital.views.console.NurseViews.submenuEnfermeras;
@@ -39,7 +38,9 @@ public class MenuViews {
             System.out.println("1. Administrar modelos");
             System.out.println("2. Visualizar Horarios");
             System.out.println("3. Reporte de Asistencia");
-            System.out.println("4. Salir");
+            System.out.println("4. Reporte de los modelos");
+            System.out.println("5. Asistencia Crítica por Depto");
+            System.out.println("6. Salir");
             System.out.println(" --------------------------");
             System.out.print("Seleccione una opción: ");
             opcion = Integer.parseInt(scanner.readLine());
@@ -59,13 +60,21 @@ public class MenuViews {
                     reporteAsistencia(scanner, hospital);
                     break;
                 case 4:
+                    System.out.println("Opción seleccionada: Generar reporte de los modelos");
+                    reporteModelos(scanner, hospital);
+                    break;
+                case 5:
+                    System.out.println("Opción seleccionada: Asistencia crítica por Depto");
+                    asistenciaCritica(scanner, hospital);
+                    break;
+                case 6:
                     System.out.println("Saliendo del menú...");
                     break;
                 default:
                     System.out.println("Opción no válida. Por favor, intente de nuevo.");
             }
             System.out.println();
-        } while(opcion !=4);
+        } while(opcion != 6);
 
         scanner.close();
     }

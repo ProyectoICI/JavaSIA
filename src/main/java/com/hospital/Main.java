@@ -12,19 +12,18 @@ import main.java.com.hospital.controller.HospitalController;
 import main.java.com.hospital.controller.NurseController;
 import main.java.com.hospital.controller.ShiftController;
 import main.java.com.hospital.model.Hospital;
+import main.java.com.hospital.model.Database;
 import main.java.com.hospital.views.console.MenuViews;
 import main.java.com.hospital.views.swing.MainFrame;
 
 import javax.swing.*;
 import java.io.IOException;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 public class Main {
     public static void main(String[] args) throws IOException {
+
+
+
         /*
         * boolean loadData        - Carga el programa con datos iniciales de ser verdadero
         * boolean randomizeShifts - De ser verdadero, crea turnos aleatorios iniciales para demostrar funcionalidad
@@ -42,7 +41,18 @@ public class Main {
         NurseController nurseController = new NurseController(loadData, hospital);
         ShiftController shiftController = new ShiftController(loadData, hospital, randomizeShifts);
 
-        connectDatabase();
+        // ** IMPORTANTE **
+        // Esto te permite guardar la información antes de cerrar el programa.
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            public void run() {
+                System.out.println("\n");
+                Database.closeDatabase();
+                System.out.println("\nApagandose...");
+
+            }
+        });
+
+        Database.connectDatabase();
 
         if (conConsola) {
             MenuViews menu = new MenuViews();
@@ -60,33 +70,10 @@ public class Main {
             javaSwing.setVisible(true);
 
         }
+
+
     }
 
-    public static void connectDatabase() {
-        Connection conn = null;
-        try {
-            // Load the SQLite JDBC driver
-            Class.forName("org.sqlite.JDBC");
 
-            // db parameters
-            String url = "jdbc:sqlite:src\\main\\resources\\database.sqlite";
-            // create a connection to the database
-            conn = DriverManager.getConnection(url);
-            System.out.println(" --------------------------- ");
-            System.out.println("** BASE DE DATOS CONECTADA **");
-            System.out.println(" --------------------------- ");
-
-        } catch (SQLException | ClassNotFoundException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }
-    }
 
 }
