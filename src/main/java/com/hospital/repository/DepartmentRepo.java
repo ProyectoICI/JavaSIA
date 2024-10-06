@@ -13,6 +13,8 @@ public class DepartmentRepo {
         hospital.addDepartment(departamento);
     }
 
+
+
     public void remover(Hospital hospital, Departamento departamento) {
         hospital.removeDepartment(departamento);
     }

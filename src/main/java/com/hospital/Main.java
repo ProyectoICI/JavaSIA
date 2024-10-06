@@ -13,7 +13,9 @@ import main.java.com.hospital.controller.NurseController;
 import main.java.com.hospital.controller.ShiftController;
 import main.java.com.hospital.model.Hospital;
 import main.java.com.hospital.views.console.MenuViews;
+import main.java.com.hospital.views.swing.MainFrame;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class Main {
@@ -24,6 +26,7 @@ public class Main {
         * */
         boolean loadData = false;
         boolean randomizeShifts = true;
+        boolean conConsola = false;
         // TODO: Hacer que randomizeShifts habilite turnos aleatorios de mañana/día/noche de distintos departamentos.
 
         Hospital hospital = new Hospital();
@@ -33,11 +36,24 @@ public class Main {
         HospitalController hospitalController = new HospitalController(loadData, hospital);
         NurseController nurseController = new NurseController(loadData, hospital);
         ShiftController shiftController = new ShiftController(loadData, hospital, randomizeShifts);
-        
-        // Menu de consola
-        MenuViews menu = new MenuViews();
 
-        MenuViews.menuPrincipal(hospital, deptController, hospitalController, nurseController, shiftController);
+        if (conConsola) {
+            MenuViews menu = new MenuViews();
+            MenuViews.menuPrincipal(hospital, deptController, hospitalController, nurseController, shiftController);
+        } else {
+            JFrame javaSwing = new JFrame("Gestión de turnos");
+            MainFrame mainPanel = new MainFrame();
+
+            javaSwing.setContentPane(mainPanel.getContentPane());
+
+            javaSwing.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            javaSwing.setSize(800, 600);
+            javaSwing.setLocationRelativeTo(null);
+            javaSwing.setResizable(false);
+            javaSwing.setVisible(true);
+
+        }
+
 
 
 

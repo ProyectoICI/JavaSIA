@@ -12,6 +12,7 @@ public class NurseRepo {
         hospital.addNurse(enfermera);
     }
 
+
     public void remover(Hospital hospital, Enfermera enfermera) {
         hospital.removeNurse(enfermera);
     }

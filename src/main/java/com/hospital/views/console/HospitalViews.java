@@ -7,6 +7,7 @@ import main.java.com.hospital.model.Hospital;
 import java.io.BufferedReader;
 import java.io.IOException;
 
+
 public class HospitalViews {
     // TODO: Hacer el submenu del hospital, editar sus atributos
     public static void submenuHospital(BufferedReader scanner, Hospital hospital, HospitalController hospitalController) throws IOException {
