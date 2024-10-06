@@ -17,7 +17,6 @@ import static main.java.com.hospital.views.console.HospitalViews.submenuHospital
 import static main.java.com.hospital.views.console.OtherViews.*;
 import static main.java.com.hospital.views.console.ShiftViews.submenuTurnos;
 import static main.java.com.hospital.views.console.DepartmentViews.submenuDepartamentos;
-import static main.java.com.hospital.views.console.NurseViews.submenuEnfermeras;
 
 public class MenuViews {
     public static void menuPrincipal(Hospital hospital,
@@ -86,7 +85,7 @@ public class MenuViews {
                                        ShiftController shiftController) throws IOException
     {
         int subOpcion;
-
+        NurseViews view = new NurseViews();
         do {
             System.out.println(" ---------- ** MODELOS ** -------- ");
             System.out.println("1. Hospital");
@@ -106,7 +105,7 @@ public class MenuViews {
                     break;
                 case 2:
                     System.out.println("Opción seleccionada: Enfermeras");
-                    submenuEnfermeras(scanner, hospital, nurseController);
+                    view.submenu(scanner, hospital);
                     esperarVolver(scanner);
                     break;
                 case 3:
@@ -137,6 +136,30 @@ public class MenuViews {
             System.out.println("Por favor, presione 0 para volver al menú anterior.");
             volver = Integer.parseInt(scanner.readLine());
         }
+    }
+
+    public void submenu(BufferedReader scanner, Hospital hospital) throws IOException {
+        int subopcion;
+
+        do {
+            System.out.println(" --------- ** SUBMENU ** ------- ");
+            System.out.println("1. Opcion");
+            System.out.println("2. Volver atras");
+            System.out.println( "--------------------------------");
+            subopcion = Integer.parseInt(scanner.readLine());
+
+            switch (subopcion) {
+                case 1:
+                    System.out.println("Opcion seleccionada...");
+                    break;
+                case 2:
+                    System.out.println("Volviendo atras...");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Por favor, intente de nuevo.");
+            }
+            System.out.println();
+        } while(subopcion != 2);
     }
 
 }

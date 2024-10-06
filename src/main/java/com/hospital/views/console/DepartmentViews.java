@@ -6,11 +6,13 @@ import main.java.com.hospital.model.Hospital;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class DepartmentViews {
+public class DepartmentViews extends MenuViews {
 
     public static void submenuDepartamentos(BufferedReader scanner, Hospital hospital, DeptController deptController) throws IOException {
         int opcion;
         int cantApartamentos = hospital.getDepartments().size();
+
+        DepartmentViews view = new DepartmentViews(); // Create an instance of the subclass
         do {
             System.out.println(" --------- ** DEPARTAMENTOS ** ------- ");
             System.out.println("1. Crear nuevo departamento");
@@ -40,7 +42,7 @@ public class DepartmentViews {
                     break;
                 case 4:
                     System.out.println("Opción seleccionada: Editar departamento");
-                    submenuDeptoEditar(scanner, hospital, deptController);
+                    view.submenu(scanner, hospital);
                     break;
                 case 5:
                     System.out.println("Volviendo atras...");
@@ -53,7 +55,9 @@ public class DepartmentViews {
 
     }
 
-    public static void submenuDeptoEditar(BufferedReader scanner, Hospital hospital, DeptController deptController) throws IOException {
+    @Override
+    public void submenu(BufferedReader scanner, Hospital hospital) throws IOException {
+
         int subopcion;
 
         do {
@@ -86,6 +90,7 @@ public class DepartmentViews {
             }
             System.out.println();
         } while(subopcion !=4);
-
     }
+
+
 }

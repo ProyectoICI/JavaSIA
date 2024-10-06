@@ -7,9 +7,10 @@ import main.java.com.hospital.model.Hospital;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class NurseViews {
+public class NurseViews extends MenuViews {
 
-    public static void submenuEnfermeras(BufferedReader scanner, Hospital hospital, NurseController nurseController) throws IOException {
+    @Override
+    public void submenu(BufferedReader scanner, Hospital hospital) throws IOException {
         int opcion;
         int numEnfermeras = hospital.getNurses().size();
 
