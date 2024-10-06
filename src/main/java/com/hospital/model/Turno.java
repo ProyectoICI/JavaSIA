@@ -30,6 +30,10 @@ public class Turno {
         this.diaTurno = null;
     }
 
+    public String toString() {
+        return "Turno: " + enfermeraAsignada + ", " + horarioTurno + ", " + diaTurno + ", " + deptoTurno;
+    }
+
     public String getEnfermeraAsignada() {
         return enfermeraAsignada;
     }

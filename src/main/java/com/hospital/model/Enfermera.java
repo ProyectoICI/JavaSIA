@@ -34,6 +34,10 @@ public class Enfermera {
         this.ocupado = false;
     }
 
+    public String toString() {
+        return "Enfermera: " + nombre + " " + apellido + ", ID: " + enfermeraID + ", PrefDepto: " + prefDepto + ", PrefTurno: " + prefTurno + ", DeptoAsignado: " + deptoAsignado + ", Asistencia: " + asistencia + ", Ocupado: " + ocupado;
+    }
+
     // Getters & Setters
 
     public String getDeptoAsignado() { return deptoAsignado; }

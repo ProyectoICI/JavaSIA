@@ -12,7 +12,11 @@ public class OtherViews {
     }
 
     public static void reporteModelos(BufferedReader scanner, Hospital hospital) throws IOException {
-
+        try {
+            hospital.writeToFile("hospital_data.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void horariosVisual(BufferedReader scanner, Hospital hospital) throws IOException {

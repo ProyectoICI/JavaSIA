@@ -17,6 +17,20 @@ public class Departamento {
         turnosDepto = new ArrayList<>();
     }
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Departamento: ").append(nombreDepto).append(", ID: ").append(deptoID).append(", NecesidadEnfermeras: ").append(necesidadEnfermeras).append("\n");
+        sb.append("Enfermeras: \n");
+        for (Enfermera e : enfermerasDepto) {
+            sb.append(e.toString()).append("\n");
+        }
+        sb.append("Turnos: \n");
+        for (Turno t : turnosDepto) {
+            sb.append(t.toString()).append("\n");
+        }
+        return sb.toString();
+    }
+
     public int getNecesidadEnfermeras() {
         return necesidadEnfermeras;
     }

@@ -2,6 +2,9 @@ package main.java.com.hospital.model;
 
 import main.java.com.hospital.model.Exceptions;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -134,6 +137,32 @@ public class Hospital {
             }
         }
         return null;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Hospital: ").append(nombreHospital).append("\n");
+        sb.append("Numero: ").append(numeroHospital).append("\n");
+        sb.append("Direccion: ").append(direccionHospital).append("\n");
+        sb.append(" ----- Enfermeras: ----- \n");
+        for (Enfermera e : enfermerasHospital) {
+            sb.append(e.toString()).append("\n");
+        }
+        sb.append(" ----- Departamentos: ----- \n");
+        for (Map.Entry<Integer, Departamento> entry : deptosHospital.entrySet()) {
+            sb.append(entry.getValue().toString()).append("\n");
+        }
+        sb.append(" ----- Turnos: ----- \n");
+        for (Turno t : turnosHospital) {
+            sb.append(t.toString()).append("\n");
+        }
+        return sb.toString();
+    }
+
+    public void writeToFile(String filename) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            writer.write(this.toString());
+        }
     }
 
     // Getters & Setters
