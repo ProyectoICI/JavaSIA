@@ -32,6 +32,19 @@ public class Hospital {
         turnosHospital = new ArrayList<>();
     }
 
+    // Metodos del hospital
+    public void changeNumber(int numero, Hospital hospital) {
+        hospital.setNumeroHospital(String.valueOf(numero));
+    }
+
+    public void changeLocation(String direccion, Hospital hospital) {
+        hospital.setDireccionHospital(direccion);
+    }
+
+    public void changeName(String nombre, Hospital hospital) {
+        hospital.setNombreHospital(nombre);
+    }
+
     // Metodos de añadir
 
     public void addNurse(Enfermera enfermera) {
@@ -119,19 +132,6 @@ public class Hospital {
             }
         }
         return null;
-    }
-
-    // Metodos del hospital
-    public void changeNumber(int numero, Hospital hospital) {
-        hospital.setNumeroHospital(String.valueOf(numero));
-    }
-
-    public void changeLocation(String direccion, Hospital hospital) {
-        hospital.setDireccionHospital(direccion);
-    }
-
-    public void changeName(String nombre, Hospital hospital) {
-        hospital.setNombreHospital(nombre);
     }
 
     // Getters & Setters

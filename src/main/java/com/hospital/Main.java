@@ -18,6 +18,11 @@ import main.java.com.hospital.views.swing.MainFrame;
 import javax.swing.*;
 import java.io.IOException;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class Main {
     public static void main(String[] args) throws IOException {
         /*
@@ -26,7 +31,7 @@ public class Main {
         * */
         boolean loadData = false;
         boolean randomizeShifts = true;
-        boolean conConsola = false;
+        boolean conConsola = true;
         // TODO: Hacer que randomizeShifts habilite turnos aleatorios de mañana/día/noche de distintos departamentos.
 
         Hospital hospital = new Hospital();
@@ -36,6 +41,8 @@ public class Main {
         HospitalController hospitalController = new HospitalController(loadData, hospital);
         NurseController nurseController = new NurseController(loadData, hospital);
         ShiftController shiftController = new ShiftController(loadData, hospital, randomizeShifts);
+
+        connectDatabase();
 
         if (conConsola) {
             MenuViews menu = new MenuViews();
@@ -53,10 +60,33 @@ public class Main {
             javaSwing.setVisible(true);
 
         }
+    }
 
+    public static void connectDatabase() {
+        Connection conn = null;
+        try {
+            // Load the SQLite JDBC driver
+            Class.forName("org.sqlite.JDBC");
 
+            // db parameters
+            String url = "jdbc:sqlite:src\\main\\resources\\database.sqlite";
+            // create a connection to the database
+            conn = DriverManager.getConnection(url);
+            System.out.println(" --------------------------- ");
+            System.out.println("** BASE DE DATOS CONECTADA **");
+            System.out.println(" --------------------------- ");
 
-
+        } catch (SQLException | ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
     }
 
 }
