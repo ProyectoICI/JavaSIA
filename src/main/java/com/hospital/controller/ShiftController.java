@@ -25,7 +25,6 @@ public class ShiftController {
     }
 
     public static void removeTurno(Hospital hospital) throws IOException {
-        // TODO: Buscar el turno a eliminar por el nombre de enfermera y eliminar
         Turno turnoEliminar = new Turno();
         ShiftService.eliminarTurno(hospital, turnoEliminar);
     }
@@ -46,8 +45,7 @@ public class ShiftController {
         System.out.println("No se encontraron turnos.");
     }
 
-    // TODO: Hacer la lógica de ordenar la asignación de los turnos en base a las prioridades y necesidades de cada área.
-    // TODO: Poblar los turnos basados en esa lógica
+
     public void calculoPrioridad() {
     }
 }

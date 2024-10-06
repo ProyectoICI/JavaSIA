@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class ShiftRepo {
 
@@ -38,6 +39,8 @@ public class ShiftRepo {
             LocalDate randomDate;
             Map<Integer, Departamento> deptosHospital = hospital.getDepartments();
 
+            Random randDay = new Random();
+            Random randMonth = new Random();
 
             int yearDate = 2024;
             int randomMonth;
@@ -54,9 +57,8 @@ public class ShiftRepo {
                 indexTime = (int) (Math.random() * randomTime.length);
                 indexDeptos = (int) (Math.random() * turnosIniciales.size());
 
-
-                randomDay =  1 + (int) (Math.random() * ((27 - 1 + 1) + 1));
-                randomMonth = 1 + (int) (Math.random() * ((12 + 1 + 1) + 1));
+                randomDay = randDay.nextInt(27) + 1;
+                randomMonth = randMonth.nextInt(12) + 1;
 
                 if (randomDay <= 9) {
                     stringRandomDay = "0" + randomDay;

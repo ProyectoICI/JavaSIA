@@ -11,8 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class InitialData {
-    // TODO: Agregar datos iniciales inicializando y poblando un ArrayList de departamentos y retornandolo
-    // TODO:
+
     public static Map<Integer, Departamento> cargarDeptos() {
         Map<Integer, Departamento> deptosIniciales = new HashMap<>();
 
@@ -32,8 +31,7 @@ public class InitialData {
 
         return deptosIniciales;
     }
-    // TODO: Agregar datos iniciales inicializando y poblando un ArrayList de enfermeras y retornandolo
-    // TODO: Alrededor de 25 enfermeras distintas
+
     public static ArrayList<Enfermera> cargarEnfermeras() {
         ArrayList<Enfermera> enfermerasIniciales = new ArrayList<>();
 
@@ -99,8 +97,7 @@ public class InitialData {
 
         return enfermerasIniciales;
     }
-    // TODO: Agregar datos iniciales inicializando y poblando un ArrayList de turnos y retornandolo
-    // TODO: Aquí implementar los turnos aleatorios de ser verdadero en la clase Main.
+
     public static ArrayList<Turno> cargarTurnos() {
         ArrayList<Turno> turnosIniciales = new ArrayList<>();
         LocalDate localDateParse;
@@ -119,7 +116,7 @@ public class InitialData {
         return turnosIniciales;
 
     }
-    // TODO: Agregar datos iniciales inicializando y poblando los atributos de un hospital y retornandolo
+
     public static Hospital cargarHospital() {
         return new Hospital("Hospital Dr. Gustavo Fricke",
                 "057",

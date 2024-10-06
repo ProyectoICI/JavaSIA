@@ -21,9 +21,6 @@ public class DeptController {
         }
     }
 
-    /*
-    TODO: Agregar los checkeos correspondientes a cada funcion, esta el elemento? si no está que hacer?
-     */
     public static void addDepartamento(Hospital hospital) throws IOException {
         Scanner scanner  = new Scanner(new InputStreamReader(System.in));
         System.out.println("Ingrese el nombre del departamento\n" +
@@ -77,17 +74,17 @@ public class DeptController {
         System.out.println("No se encontraron departamentos.");
     }
 
-    // TODO: Hacer la función cambioNecesidad que cambiaría la necesidad de enfermeras del departamento indicado
+
     public static void cambioNecesidad(Hospital hospital) throws IOException {
 
     }
 
-    // TODO: Hacer la función asignarEnfermera que asigna enfermeras al departamento indicado
+
     public static void asignarEnfermera(Hospital hospital) throws IOException {
 
     }
 
-    // TODO: Hacer la función desasignarEnfermera que desasignaria enfermeras de un departamento indicado
+
     public static void desasignarEnfermera(Hospital hospital) throws IOException {
 
     }
