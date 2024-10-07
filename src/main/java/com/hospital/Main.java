@@ -19,9 +19,10 @@ import main.java.com.hospital.views.swing.MainFrame;
 import javax.swing.*;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException {
         boolean oldLoadData;
         Connection db = null;
 

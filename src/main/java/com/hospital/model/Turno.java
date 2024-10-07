@@ -30,6 +30,13 @@ public class Turno {
         this.diaTurno = null;
     }
 
+    public Turno(String enfermeraAsignada, String horarioTurno, LocalDate diaTurno, String deptoTurno) {
+        this.enfermeraAsignada = enfermeraAsignada;
+        this.horarioTurno = horarioTurno;
+        this.diaTurno = diaTurno;
+        this.deptoTurno = deptoTurno;
+    }
+
     public String toString() {
         return "Turno: " + enfermeraAsignada + ", " + horarioTurno + ", " + diaTurno + ", " + deptoTurno;
     }

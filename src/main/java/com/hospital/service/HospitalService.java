@@ -5,13 +5,14 @@ import main.java.com.hospital.model.Hospital;
 import main.java.com.hospital.repository.HospitalRepo;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public class HospitalService {
     public static final HospitalRepo hospitalRepo = new HospitalRepo();
 
     public void oldLoadInitialData(Hospital hospital) { hospitalRepo.cargarData(hospital); }
 
-    public void loadDatabaseData(Hospital hospital, Connection db) { hospitalRepo.cargarDataDB(hospital, db); }
+    public void loadDatabaseData(Hospital hospital, Connection db) throws SQLException { hospitalRepo.cargarDataDB(hospital, db); }
 
     public static void cambioNombre(Hospital hospital, String nombre) {
         hospitalRepo.cambioNombre(hospital, nombre);

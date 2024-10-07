@@ -1,12 +1,14 @@
 package main.java.com.hospital.repository;
 
 import main.java.com.hospital.model.Departamento;
+import main.java.com.hospital.model.Enfermera;
 import main.java.com.hospital.model.Hospital;
 import main.java.com.hospital.model.Turno;
 import test.InitialData;
 
-import java.sql.Connection;
+import java.sql.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -96,8 +98,49 @@ public class ShiftRepo {
         }
     }
 
-    public void cargarDataDB(Hospital hospital, Connection db) {
-        String sql = "SELECT * FROM Turno";
-        System.out.println("asd");
+    public void cargarDataDB(Hospital hospital, Connection db) throws SQLException {
+        String sqlShift = "SELECT * FROM Turno";
+        Statement stmtHospital = db.createStatement();
+        ResultSet rsTurno = stmtHospital.executeQuery(sqlShift);
+
+        while (rsTurno.next()) {
+            int id = rsTurno.getInt("turnoID");
+            String enfermeraAsig = rsTurno.getString("enfermeraAsig");
+            String diaTurno = rsTurno.getString("diaTurno");
+            String horarioTurno = rsTurno.getString("horarioTurno");
+            String deptoTurno = rsTurno.getString("deptoTurno");
+
+
+            String sqlTurno = "SELECT * FROM Turno WHERE turnoID = ?";
+            PreparedStatement pstmtShift = db.prepareStatement(sqlTurno);
+            pstmtShift.setInt(1, id);
+            ResultSet rsShift = pstmtShift.executeQuery();
+
+            while (rsShift.next()) {
+                int shiftID = rsShift.getInt("turnoID");
+                Turno shift = loadTurnoByID(db, shiftID);
+                hospital.addShift(shift);
+            }
+
+        }
+
+    }
+
+    private Turno loadTurnoByID(Connection db, int turnoID) throws SQLException {
+        String sql = "SELECT * FROM Turno WHERE turnoID = ?";
+        PreparedStatement pstmt = db.prepareStatement(sql);
+        pstmt.setInt(1, turnoID);
+        ResultSet rs = pstmt.executeQuery();
+
+        if (rs.next()) {
+            String enfermeraAsignada = rs.getString("enfermeraAsig");
+            String horarioTurno = rs.getString("horarioTurno");
+            String diaTurnoStr = rs.getString("diaTurno");
+            LocalDate diaTurno = LocalDate.parse(diaTurnoStr, DateTimeFormatter.ISO_LOCAL_DATE);
+            String deptoTurno = rs.getString("deptoTurno");
+
+            return new Turno(enfermeraAsignada, horarioTurno, diaTurno, deptoTurno);
+        }
+        return null;
     }
 }

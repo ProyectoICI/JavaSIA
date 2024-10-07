@@ -8,6 +8,7 @@ import main.java.com.hospital.service.DepartmentService;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -16,7 +17,7 @@ import java.sql.Connection;
 public class DeptController {
     private DepartmentService departmentService;
 
-    public DeptController(boolean oldLoadData, Hospital hospital, Connection db) throws IOException {
+    public DeptController(boolean oldLoadData, Hospital hospital, Connection db) throws IOException, SQLException {
         this.departmentService = new DepartmentService();
         if (oldLoadData) {
             DepartmentService.oldLoadInitialData(hospital);

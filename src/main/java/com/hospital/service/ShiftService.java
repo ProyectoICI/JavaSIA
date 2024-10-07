@@ -6,6 +6,7 @@ import main.java.com.hospital.model.Turno;
 import main.java.com.hospital.repository.ShiftRepo;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ShiftService {
@@ -27,5 +28,5 @@ public class ShiftService {
 
     public void oldLoadInitialData(Hospital hospital) { shiftRepo.cargarData(hospital); }
 
-    public void loadDatabaseData(Hospital hospital, Connection db) { shiftRepo.cargarDataDB(hospital, db); }
+    public void loadDatabaseData(Hospital hospital, Connection db) throws SQLException { shiftRepo.cargarDataDB(hospital, db); }
 }

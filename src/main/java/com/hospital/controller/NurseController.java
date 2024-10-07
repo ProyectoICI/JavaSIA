@@ -8,6 +8,7 @@ import main.java.com.hospital.service.NurseService;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Array;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Map;
@@ -18,7 +19,7 @@ import java.sql.Connection;
 public class NurseController {
     private NurseService nurseService;
 
-    public NurseController(boolean oldLoadData, Hospital hospital, Connection db) {
+    public NurseController(boolean oldLoadData, Hospital hospital, Connection db) throws SQLException {
         this.nurseService = new NurseService();
         if (oldLoadData) {
             nurseService.oldLoadInitialData(hospital);

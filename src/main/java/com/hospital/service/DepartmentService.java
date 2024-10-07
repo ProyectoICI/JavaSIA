@@ -6,6 +6,7 @@ import main.java.com.hospital.repository.DepartmentRepo;
 import test.InitialData;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +18,7 @@ public class DepartmentService {
         departmentRepo.cargarData(hospital);
     }
 
-    public static void loadDatabaseData(Hospital hospital, Connection db) { departmentRepo.cargarDataDB(hospital, db); }
+    public static void loadDatabaseData(Hospital hospital, Connection db) throws SQLException { departmentRepo.cargarDataDB(hospital, db); }
 
     public static void eliminarDepto(Hospital hospital, Departamento departamento) {
         departmentRepo.remover(hospital, departamento);

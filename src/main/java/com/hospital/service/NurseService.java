@@ -5,6 +5,7 @@ import main.java.com.hospital.model.Hospital;
 import main.java.com.hospital.repository.NurseRepo;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class NurseService {
@@ -12,7 +13,7 @@ public class NurseService {
 
     public void oldLoadInitialData(Hospital hospital) { nurseRepo.cargarData(hospital); }
 
-    public void loadDatabaseData(Hospital hospital, Connection db) { nurseRepo.cargarDataDB(hospital, db); }
+    public void loadDatabaseData(Hospital hospital, Connection db) throws SQLException { nurseRepo.cargarDataDB(hospital, db); }
 
     public static void eliminarEnfermera(Hospital hospital, Enfermera enfermera) {
         nurseRepo.remover(hospital, enfermera);

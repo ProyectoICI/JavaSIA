@@ -5,6 +5,7 @@ import main.java.com.hospital.model.Turno;
 import main.java.com.hospital.service.ShiftService;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import java.sql.Connection;
@@ -12,7 +13,7 @@ import java.sql.Connection;
 public class ShiftController {
     private static ShiftService shiftService;
 
-    public ShiftController(boolean oldLoadData, Hospital hospital, boolean randomizeShifts, Connection db) {
+    public ShiftController(boolean oldLoadData, Hospital hospital, boolean randomizeShifts, Connection db) throws SQLException {
         shiftService = new ShiftService();
         if (oldLoadData && randomizeShifts) {
             shiftService.oldLoadInitialData(hospital, randomizeShifts);

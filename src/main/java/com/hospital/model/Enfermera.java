@@ -34,6 +34,17 @@ public class Enfermera {
         this.ocupado = false;
     }
 
+    public Enfermera(String nombre, String apellido, String prefDepto, String prefTurno, int enfermeraID, String deptoAsignado, int asistencia, boolean ocupado) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.enfermeraID = enfermeraID;
+        this.prefDepto = prefDepto;
+        this.prefTurno = prefTurno;
+        this.asistencia = asistencia;
+        this.deptoAsignado = deptoAsignado;
+        this.ocupado = ocupado;
+    }
+
     public String toString() {
         return "Enfermera: " + nombre + " " + apellido + ", ID: " + enfermeraID + ", PrefDepto: " + prefDepto + ", PrefTurno: " + prefTurno + ", DeptoAsignado: " + deptoAsignado + ", Asistencia: " + asistencia + ", Ocupado: " + ocupado;
     }
