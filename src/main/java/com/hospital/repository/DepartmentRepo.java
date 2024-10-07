@@ -4,6 +4,7 @@ import main.java.com.hospital.model.Departamento;
 import main.java.com.hospital.model.Hospital;
 import test.InitialData;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,5 +33,10 @@ public class DepartmentRepo {
         for (Departamento departamento : departamentosIniciales.values()) {
             hospital.addDepartment(departamento);
         }
+    }
+
+    public void cargarDataDB(Hospital hospital, Connection db) {
+        String sql = "SELECT * FROM Departamento";
+        System.out.println("asd");
     }
 }

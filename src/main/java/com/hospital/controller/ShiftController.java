@@ -7,15 +7,19 @@ import main.java.com.hospital.service.ShiftService;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import java.sql.Connection;
+
 public class ShiftController {
     private static ShiftService shiftService;
 
-    public ShiftController(boolean loadData, Hospital hospital, boolean randomizeShifts) {
+    public ShiftController(boolean oldLoadData, Hospital hospital, boolean randomizeShifts, Connection db) {
         shiftService = new ShiftService();
-        if (loadData && randomizeShifts) {
-            shiftService.loadInitialData(hospital, randomizeShifts);
-        } else if (loadData) {
-            shiftService.loadInitialData(hospital);
+        if (oldLoadData && randomizeShifts) {
+            shiftService.oldLoadInitialData(hospital, randomizeShifts);
+        } else if (oldLoadData) {
+            shiftService.oldLoadInitialData(hospital);
+        } else {
+            shiftService.loadDatabaseData(hospital, db);
         }
     }
 
@@ -45,7 +49,7 @@ public class ShiftController {
         System.out.println("No se encontraron turnos.");
     }
 
-
     public void calculoPrioridad() {
+
     }
 }

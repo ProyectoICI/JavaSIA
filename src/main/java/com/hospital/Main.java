@@ -18,28 +18,38 @@ import main.java.com.hospital.views.swing.MainFrame;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.sql.Connection;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-
+        boolean oldLoadData;
+        Connection db = null;
 
 
         /*
-        * boolean loadData        - Carga el programa con datos iniciales de ser verdadero
-        * boolean randomizeShifts - De ser verdadero, crea turnos aleatorios iniciales para demostrar funcionalidad
+        * boolean cargaBaseDatos        - Carga el programa con datos de la base de datos de ser verdadero
+        * boolean randomizeShifts       - De ser verdadero, crea turnos aleatorios iniciales para demostrar funcionalidad
+        * boolean conConsola            - Carga la interfaz con consola, de lo contrario usa JavaSwing
         * */
-        boolean loadData = true;
+        boolean cargaBaseDatos = true;
         boolean randomizeShifts = true;
         boolean conConsola = true;
         // TODO: Hacer que randomizeShifts habilite turnos aleatorios de mañana/día/noche de distintos departamentos.
 
         Hospital hospital = new Hospital();
 
+        if (cargaBaseDatos) {
+            db = Database.connectDatabase();
+            oldLoadData = false;
+        } else {
+            oldLoadData = true;
+        }
+
         // Controladores
-        DeptController deptController = new DeptController(loadData, hospital);
-        HospitalController hospitalController = new HospitalController(loadData, hospital);
-        NurseController nurseController = new NurseController(loadData, hospital);
-        ShiftController shiftController = new ShiftController(loadData, hospital, randomizeShifts);
+        DeptController deptController = new DeptController(oldLoadData, hospital, db);
+        HospitalController hospitalController = new HospitalController(oldLoadData, hospital, db);
+        NurseController nurseController = new NurseController(oldLoadData, hospital, db);
+        ShiftController shiftController = new ShiftController(oldLoadData, hospital, randomizeShifts, db);
 
         // ** IMPORTANTE **
         // Esto te permite guardar la información antes de cerrar el programa.
@@ -51,8 +61,6 @@ public class Main {
 
             }
         });
-
-        Database.connectDatabase();
 
         if (conConsola) {
             MenuViews menu = new MenuViews();

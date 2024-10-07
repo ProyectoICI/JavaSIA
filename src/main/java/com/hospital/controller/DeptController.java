@@ -1,23 +1,27 @@
 package main.java.com.hospital.controller;
 
 import main.java.com.hospital.model.Departamento;
+import main.java.com.hospital.model.Enfermera;
 import main.java.com.hospital.model.Hospital;
 import main.java.com.hospital.service.DepartmentService;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
+import java.sql.Connection;
 
 public class DeptController {
     private DepartmentService departmentService;
 
-    public DeptController(boolean loadData, Hospital hospital) throws IOException {
+    public DeptController(boolean oldLoadData, Hospital hospital, Connection db) throws IOException {
         this.departmentService = new DepartmentService();
-        if (loadData) {
-            DepartmentService.loadInitialData(hospital);
+        if (oldLoadData) {
+            DepartmentService.oldLoadInitialData(hospital);
+        } else {
+            DepartmentService.loadDatabaseData(hospital, db);
         }
     }
 
@@ -74,19 +78,60 @@ public class DeptController {
         System.out.println("No se encontraron departamentos.");
     }
 
-
-    public static void cambioNecesidad(Hospital hospital) throws IOException {
-
+    public static void asignarEnfermera(Hospital hospital, BufferedReader scanner) throws IOException {
+        System.out.println("Ingrese el número (ID) del departamento a asignar la enfermera");
+        int id = Integer.parseInt(scanner.readLine());
+        Departamento deptoFound = hospital.getDepartment(id);
+        if (deptoFound != null) {
+            System.out.println("Ingrese el número (ID) de la enfermera a asignar");
+            int idEnfermera = Integer.parseInt(scanner.readLine());
+            Enfermera enfermera = hospital.getNurse(idEnfermera);
+            if (enfermera != null) {
+                System.out.println("Enfermera asignada con éxito.");
+                enfermera.setDeptoAsignado(deptoFound.getNombreDepto());
+                deptoFound.addEnfermera(enfermera);
+            } else {
+                System.out.println("Enfermera con el ID " + idEnfermera + " no existe");
+            }
+        } else {
+            System.out.println("No existe el departamento con el ID " + id);
+        }
     }
 
 
-    public static void asignarEnfermera(Hospital hospital) throws IOException {
-
+    public static void desasignarEnfermera(Hospital hospital, BufferedReader scanner) throws IOException {
+        System.out.println("Ingrese el número (ID) del departamento a desasignar la enfermera");
+        int id = Integer.parseInt(scanner.readLine());
+        Departamento deptoFound = hospital.getDepartment(id);
+        if (deptoFound != null) {
+            System.out.println("Ingrese el número (ID) de la enfermera a desasignar");
+            int idEnfermera = Integer.parseInt(scanner.readLine());
+            Enfermera enfermera = hospital.getNurse(idEnfermera);
+            if (enfermera != null) {
+                System.out.println("Enfermera asignada con éxito.");
+                enfermera.setDeptoAsignado("Ninguno");
+                deptoFound.removeEnfermera(enfermera);
+            } else {
+                System.out.println("Enfermera con el ID " + idEnfermera + " no existe");
+            }
+        } else {
+            System.out.println("No existe el departamento con el ID " + id);
+        }
     }
 
-
-    public static void desasignarEnfermera(Hospital hospital) throws IOException {
-
+    public static void cambioNecesidad(Hospital hospital, BufferedReader scanner) throws IOException {
+        System.out.println("Ingrese el número (ID) del departamento a cambiar la necesidad");
+        int id = Integer.parseInt(scanner.readLine());
+        Departamento deptoFound = hospital.getDepartment(id);
+        if (deptoFound != null) {
+            System.out.println("Ingrese la necesidad nueva del depto");
+            System.out.println(" NECESIDAD ACTUAL : " + deptoFound.getNecesidadEnfermeras());
+            int necesidad = Integer.parseInt(scanner.readLine());
+            deptoFound.setNecesidadEnfermeras(necesidad);
+        } else {
+            System.out.println("No existe el departamento con el ID " + id);
+        }
     }
+
 
 }

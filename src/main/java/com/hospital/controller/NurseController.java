@@ -13,13 +13,17 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
+import java.sql.Connection;
+
 public class NurseController {
     private NurseService nurseService;
 
-    public NurseController(boolean loadData, Hospital hospital) {
+    public NurseController(boolean oldLoadData, Hospital hospital, Connection db) {
         this.nurseService = new NurseService();
-        if (loadData) {
-            nurseService.loadInitialData(hospital);
+        if (oldLoadData) {
+            nurseService.oldLoadInitialData(hospital);
+        } else {
+            nurseService.loadDatabaseData(hospital, db);
         }
     }
     

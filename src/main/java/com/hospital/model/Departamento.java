@@ -31,6 +31,36 @@ public class Departamento {
         return sb.toString();
     }
 
+    // Metodos para añadir
+
+    public void addEnfermera(Enfermera e) {
+        enfermerasDepto.add(e);
+    }
+
+    public void addTurno(Turno t) {
+        turnosDepto.add(t);
+    }
+
+    // Metodos para remover
+
+    public void removeEnfermera(Enfermera e) {
+        enfermerasDepto.remove(e);
+    }
+
+    public void removeTurno(Turno t) {
+        turnosDepto.remove(t);
+    }
+
+    // Retorna la listas del objeto
+
+    public ArrayList<Enfermera> getEnfermerasDepto() {
+        return enfermerasDepto;
+    }
+
+    public ArrayList<Turno> getTurnosDepto() {
+        return turnosDepto;
+    }
+
     public int getNecesidadEnfermeras() {
         return necesidadEnfermeras;
     }
@@ -47,9 +77,7 @@ public class Departamento {
         this.nombreDepto = nombreDepto;
     }
 
-    public int getDeptoID() {
-        return deptoID;
-    }
+    public int getDeptoID() { return deptoID; }
 
     public void setDeptoID(int deptoID) {
         this.deptoID = deptoID;

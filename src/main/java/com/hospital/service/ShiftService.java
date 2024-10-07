@@ -5,6 +5,7 @@ import main.java.com.hospital.model.Hospital;
 import main.java.com.hospital.model.Turno;
 import main.java.com.hospital.repository.ShiftRepo;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 
 public class ShiftService {
@@ -22,7 +23,9 @@ public class ShiftService {
         return shiftRepo.encontrarTodos(hospital);
     }
 
-    public void loadInitialData(Hospital hospital, boolean randomizeShifts) { shiftRepo.cargarData(hospital, randomizeShifts); }
+    public void oldLoadInitialData(Hospital hospital, boolean randomizeShifts) { shiftRepo.cargarData(hospital, randomizeShifts); }
 
-    public void loadInitialData(Hospital hospital) { shiftRepo.cargarData(hospital); }
+    public void oldLoadInitialData(Hospital hospital) { shiftRepo.cargarData(hospital); }
+
+    public void loadDatabaseData(Hospital hospital, Connection db) { shiftRepo.cargarDataDB(hospital, db); }
 }

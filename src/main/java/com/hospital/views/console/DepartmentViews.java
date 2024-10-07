@@ -72,15 +72,15 @@ public class DepartmentViews extends MenuViews {
             switch (subopcion) {
                 case 1:
                     System.out.println("Opción seleccionada: Asignar enfermeras");
-                    DeptController.asignarEnfermera(hospital);
+                    DeptController.asignarEnfermera(hospital, scanner);
                     break;
                 case 2:
                     System.out.println("Opción seleccionada: Desasignar enfermeras");
-                    DeptController.desasignarEnfermera(hospital);
+                    DeptController.desasignarEnfermera(hospital, scanner);
                     break;
                 case 3:
                     System.out.println("Opción seleccionada: Cambiar necesidad enfermeras");
-                    DeptController.cambioNecesidad(hospital);
+                    DeptController.cambioNecesidad(hospital, scanner);
                     break;
                 case 4:
                     System.out.println("Volviendo atras...");

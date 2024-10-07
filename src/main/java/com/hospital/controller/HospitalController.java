@@ -4,15 +4,18 @@ import main.java.com.hospital.model.Hospital;
 import main.java.com.hospital.service.HospitalService;
 
 import java.io.InputStreamReader;
+import java.sql.Connection;
 import java.util.Scanner;
 
 public class HospitalController {
     private HospitalService hospitalService;
 
-    public HospitalController(boolean loadData, Hospital hospital) {
+    public HospitalController(boolean oldLoadData, Hospital hospital, Connection db) {
         this.hospitalService = new HospitalService();
-        if (loadData) {
-            hospitalService.loadInitialData(hospital);
+        if (oldLoadData) {
+            hospitalService.oldLoadInitialData(hospital);
+        } else {
+            hospitalService.loadDatabaseData(hospital, db);
         }
     }
 

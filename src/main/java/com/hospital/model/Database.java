@@ -15,7 +15,7 @@ public class Database {
     private static Connection conn = null;
 
     // Connect to the database
-    public static void connectDatabase() {
+    public static Connection connectDatabase() {
         try {
             Class.forName("org.sqlite.JDBC");
             String url = "jdbc:sqlite:src\\main\\resources\\database.sqlite";
@@ -28,6 +28,8 @@ public class Database {
             System.out.println(green + " --------------------------- " + reset);
             System.out.println(green + "** BASE DE DATOS CONECTADA **" + reset);
             System.out.println(green + " --------------------------- " + reset);
+
+            return conn;
 
         } catch (SQLException | ClassNotFoundException e) {
             throw new Exceptions.DatabaseConnectionException("Intento de conectarse a la base de datos falló: " + e.getMessage());

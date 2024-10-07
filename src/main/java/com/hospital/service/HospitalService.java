@@ -4,12 +4,14 @@ package main.java.com.hospital.service;
 import main.java.com.hospital.model.Hospital;
 import main.java.com.hospital.repository.HospitalRepo;
 
+import java.sql.Connection;
+
 public class HospitalService {
     public static final HospitalRepo hospitalRepo = new HospitalRepo();
 
-    public void loadInitialData(Hospital hospital) {
-        hospitalRepo.cargarData(hospital);
-    }
+    public void oldLoadInitialData(Hospital hospital) { hospitalRepo.cargarData(hospital); }
+
+    public void loadDatabaseData(Hospital hospital, Connection db) { hospitalRepo.cargarDataDB(hospital, db); }
 
     public static void cambioNombre(Hospital hospital, String nombre) {
         hospitalRepo.cambioNombre(hospital, nombre);

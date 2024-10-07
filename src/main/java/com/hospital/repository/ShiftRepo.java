@@ -5,6 +5,7 @@ import main.java.com.hospital.model.Hospital;
 import main.java.com.hospital.model.Turno;
 import test.InitialData;
 
+import java.sql.Connection;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -93,5 +94,10 @@ public class ShiftRepo {
         for (Turno turno : turnosIniciales) {
             hospital.addShift(turno);
         }
+    }
+
+    public void cargarDataDB(Hospital hospital, Connection db) {
+        String sql = "SELECT * FROM Turno";
+        System.out.println("asd");
     }
 }

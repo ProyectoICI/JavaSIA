@@ -4,14 +4,15 @@ import main.java.com.hospital.model.Enfermera;
 import main.java.com.hospital.model.Hospital;
 import main.java.com.hospital.repository.NurseRepo;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 
 public class NurseService {
     private static final NurseRepo nurseRepo = new NurseRepo();
 
-    public void loadInitialData(Hospital hospital) {
-        nurseRepo.cargarData(hospital);
-    }
+    public void oldLoadInitialData(Hospital hospital) { nurseRepo.cargarData(hospital); }
+
+    public void loadDatabaseData(Hospital hospital, Connection db) { nurseRepo.cargarDataDB(hospital, db); }
 
     public static void eliminarEnfermera(Hospital hospital, Enfermera enfermera) {
         nurseRepo.remover(hospital, enfermera);

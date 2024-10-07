@@ -4,6 +4,7 @@ import main.java.com.hospital.model.Enfermera;
 import main.java.com.hospital.model.Hospital;
 import test.InitialData;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 
 public class NurseRepo {
@@ -26,6 +27,11 @@ public class NurseRepo {
         for(Enfermera enfermera : enfermerasIniciales) {
             hospital.addNurse(enfermera);
         }
+    }
+
+    public void cargarDataDB(Hospital hospital, Connection db) {
+        String sql = "SELECT * FROM Enfermera";
+        System.out.println("asd");
     }
 }
 
